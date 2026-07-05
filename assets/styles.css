@@ -408,6 +408,76 @@ p { margin: 0 0 1rem; max-width: 65ch; }
 .editorial p { color: color-mix(in srgb, #fff 82%, transparent); margin: 1.2rem auto 0; font-size: var(--step-1); }
 .editorial .attrib { font-family: var(--mono); font-size: .72rem; letter-spacing: .14em; text-transform: uppercase; color: color-mix(in srgb, #fff 55%, transparent); margin-top: 1.6rem; }
 
+/* ========================================================================
+   HERO DE VIDEO (home2) — carrusel a pantalla completa
+   ======================================================================== */
+.vhero {
+  position: relative; width: 100%;
+  height: min(94vh, 980px);
+  margin-top: -101px; /* sube el video detrás del topbar + header */
+  overflow: hidden; isolation: isolate;
+  display: grid; place-items: center; text-align: center;
+  background: #120c08 center/cover no-repeat;
+  color: #fff;
+}
+/* topbar por encima del video */
+.home2 .topbar { position: relative; z-index: 101; }
+.vhero__media { position: absolute; inset: 0; z-index: 1; }
+.vhero__media video {
+  position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
+  opacity: 0; transition: opacity 1.4s ease; transform: scale(1.06);
+  animation: vhero-zoom 18s ease-out infinite alternate;
+}
+.vhero__media video.active { opacity: 1; }
+@keyframes vhero-zoom { from { transform: scale(1.02); } to { transform: scale(1.12); } }
+@media (prefers-reduced-motion: reduce) { .vhero__media video { animation: none; transform: none; } }
+
+.vhero__scrim {
+  position: absolute; inset: 0; z-index: 2; pointer-events: none;
+  background:
+    linear-gradient(180deg, rgba(18,12,8,.55) 0%, rgba(18,12,8,.15) 35%, rgba(18,12,8,.55) 80%, rgba(18,12,8,.85) 100%),
+    radial-gradient(120% 80% at 50% 40%, transparent 40%, rgba(18,12,8,.4) 100%);
+}
+.vhero__inner { position: relative; z-index: 4; max-width: 900px; padding: 2rem clamp(1.15rem,5vw,3rem); }
+.vhero .eyebrow { justify-content: center; color: color-mix(in srgb, #fff 65%, transparent); }
+.vhero .eyebrow::before { background: var(--accent); }
+.vhero h1 {
+  font-family: var(--serif); font-weight: 600; color: #fdf7ee;
+  font-size: clamp(2.6rem, 1.6rem + 4.5vw, 5.8rem); line-height: 1.02;
+  text-shadow: 0 2px 30px rgba(0,0,0,.35);
+}
+.vhero h1 em { font-style: italic; color: #f0a884; }
+.vhero__lead {
+  font-size: var(--step-1); color: color-mix(in srgb, #fff 88%, transparent);
+  max-width: 46ch; margin: 1.3rem auto 0; text-shadow: 0 1px 16px rgba(0,0,0,.4);
+}
+.vhero__cta { display: flex; flex-wrap: wrap; gap: .8rem; justify-content: center; margin-top: 2rem; }
+.vhero__cta .btn--ghost { color: #fff; border-color: color-mix(in srgb, #fff 45%, transparent); }
+.vhero__cta .btn--ghost:hover { border-color: #fff; background: color-mix(in srgb, #fff 12%, transparent); }
+
+/* Puntos del carrusel */
+.vhero__dots { position: absolute; z-index: 4; bottom: clamp(4.5rem, 8vh, 6rem); left: 0; right: 0; display: flex; gap: .55rem; justify-content: center; }
+.vhero__dots button { width: 32px; height: 4px; border-radius: 100px; border: 0; cursor: pointer; padding: 0;
+  background: color-mix(in srgb, #fff 40%, transparent); transition: background .3s, width .3s; }
+.vhero__dots button.active { background: var(--accent); width: 46px; }
+
+/* Indicador de scroll */
+.vhero__scroll { position: absolute; z-index: 4; bottom: 1.6rem; left: 50%; transform: translateX(-50%);
+  color: color-mix(in srgb, #fff 70%, transparent); font-family: var(--mono); font-size: .62rem; letter-spacing: .2em;
+  text-transform: uppercase; display: flex; flex-direction: column; align-items: center; gap: .5rem; text-decoration: none; }
+.vhero__scroll svg { width: 20px; height: 20px; animation: vhero-bounce 1.8s ease-in-out infinite; }
+@keyframes vhero-bounce { 0%,100% { transform: translateY(0); } 50% { transform: translateY(6px); } }
+@media (prefers-reduced-motion: reduce) { .vhero__scroll svg { animation: none; } }
+
+/* Header transparente sobre el video (solo home2, arriba del todo) */
+.home2 .site-header:not(.is-stuck) { background: transparent; backdrop-filter: none; }
+.home2 .site-header:not(.is-stuck) .brand__name,
+.home2 .site-header:not(.is-stuck) .nav__links a { color: #fff; }
+.home2 .site-header:not(.is-stuck) .brand__tag { color: color-mix(in srgb, #fff 70%, transparent); }
+.home2 .site-header:not(.is-stuck) .brand__mark { color: #f0a884; }
+.home2 .site-header:not(.is-stuck) .icon-btn { border-color: color-mix(in srgb, #fff 40%, transparent); color: #fff; }
+.home2 .site-header:not(.is-stuck) .nav__links a::after { background: #fff; }
+
 /* ---------- Anclas con offset por header sticky ---------- */
 section[id], div[id="top"] { scroll-margin-top: 96px; }
 

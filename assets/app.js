@@ -115,5 +115,56 @@ const WHATSAPP_NUMBER = "584140000000";
   });
 })();
 
+/* ---- 8b. Hero de video en carrusel (home2) ---- */
+(function initVideoHero() {
+  const hero = document.querySelector(".vhero");
+  if (!hero) return;
+  const videos = Array.from(hero.querySelectorAll(".vhero__media video"));
+  const dotsWrap = hero.querySelector(".vhero__dots");
+  if (!videos.length) return;
+
+  const alive = []; // solo videos que cargan bien
+  videos.forEach((v, i) => {
+    v.addEventListener("error", () => hideDot(i));
+    // si una fuente falla, el video dispara 'error' en el <source> hijo
+    v.querySelectorAll("source").forEach((s) => s.addEventListener("error", () => v.dispatchEvent(new Event("error"))));
+    alive.push(i);
+    v.play?.().catch(() => {});
+  });
+
+  const dots = dotsWrap ? Array.from(dotsWrap.querySelectorAll("button")) : [];
+  function hideDot(i) { if (dots[i]) dots[i].style.display = "none"; const k = alive.indexOf(i); if (k > -1) alive.splice(k, 1); }
+
+  let cur = 0;
+  function show(idx) {
+    videos.forEach((v, i) => v.classList.toggle("active", i === idx));
+    dots.forEach((d, i) => d.classList.toggle("active", i === idx));
+    cur = idx;
+    const v = videos[idx];
+    if (v) { try { v.currentTime = 0; v.play?.().catch(() => {}); } catch (e) {} }
+  }
+  show(0);
+
+  const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  let timer = null;
+  function next() {
+    if (alive.length < 2) return;
+    const pos = alive.indexOf(cur);
+    const nxt = alive[(pos + 1) % alive.length];
+    show(nxt);
+  }
+  function start() { if (!reduce && alive.length > 1) { clearInterval(timer); timer = setInterval(next, 6500); } }
+  start();
+
+  dots.forEach((d, i) => d.addEventListener("click", () => { show(i); start(); }));
+
+  // pausar el ciclo cuando el hero sale de pantalla (ahorra batería)
+  if ("IntersectionObserver" in window) {
+    new IntersectionObserver((e) => {
+      e.forEach((en) => { if (en.isIntersecting) start(); else clearInterval(timer); });
+    }, { threshold: 0.15 }).observe(hero);
+  }
+})();
+
 /* ---- 8. Año del footer ---- */
 document.getElementById("year") && (document.getElementById("year").textContent = new Date().getFullYear());
