@@ -1,0 +1,11 @@
+# Vercel
+.vercel
+
+# OS / editor
+.DS_Store
+Thumbs.db
+*.log
+
+# Temporales
+_darktest.html
+images/_cand/

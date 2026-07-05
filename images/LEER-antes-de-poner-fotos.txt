@@ -1,0 +1,26 @@
+CARPETA DE IMÁGENES
+===================
+
+Deja aquí las fotos con EXACTAMENTE estos nombres y la web las tomará sola.
+Si un archivo no existe, la página muestra una ilustración de respaldo (no se rompe).
+
+  hero.jpg       -> Foto principal (arriba a la derecha). Vertical/cuadrada.
+                    Ideas: café servido, cereza en la mano, finca, tú tostando.
+                    Tamaño sugerido: 1000 x 1100 px aprox.
+
+  editorial.jpg  -> Foto ancha de fondo para la banda oscura del manifiesto.
+                    Ideas: cafetal, montaña andina, manos con cerezas.
+                    Tamaño sugerido: 1800 x 1000 px (horizontal).
+
+  raul.jpg       -> Retrato tuyo para la sección "Su historia". Vertical.
+                    Tamaño sugerido: 900 x 1200 px.
+
+  cafe-1.jpg     -> Foto del "Lote Los Andes" (o café en grano / bolsa).
+  cafe-2.jpg     -> Foto de "Finca La Cumbre".
+  cafe-3.jpg     -> Foto de "Microlote Reserva".
+                    Tamaño sugerido de cada una: 800 x 600 px (horizontal).
+
+CONSEJOS
+- Usa .jpg (o cambia la extensión también en index.html si prefieres .webp).
+- Comprime las fotos antes de subir (tinypng.com) para que cargue rápido.
+- Fotos propias > fotos de banco: es lo que hace única y creíble tu marca.
