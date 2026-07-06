@@ -32,8 +32,24 @@
     </a>
     <nav aria-label="Principal">
       <ul class="nav nav__links">
-        <li><a href="#cafe">Café</a></li>
-        <li><a href="#aprende">Aprende</a></li>
+        <li class="has-mega"><a href="#cafe">Café</a>
+          <div class="mega">
+            <span class="mega__hd">Cafés de origen コーヒー</span>
+            <a class="js-wa" data-wa="Hola Raúl, me interesa el café Táchira (lavado).">Táchira · Lavado</a>
+            <a class="js-wa" data-wa="Hola Raúl, me interesa el café Mérida (honey).">Mérida · Honey</a>
+            <a class="js-wa" data-wa="Hola Raúl, quiero el Microlote Reserva (natural).">Microlote Reserva · Natural</a>
+            <a class="js-wa" data-wa="Hola Raúl, quiero la Mezcla de casa.">Mezcla de casa</a>
+          </div>
+        </li>
+        <li class="has-mega"><a href="#aprende">Aprende</a>
+          <div class="mega">
+            <span class="mega__hd">Cursos 学ぶ</span>
+            <a href="#aprende">Introducción al café</a>
+            <a href="#aprende">Catación y análisis sensorial</a>
+            <a href="#aprende">Filtrado y barismo</a>
+            <a href="#aprende">Procesos y fermentaciones</a>
+          </div>
+        </li>
         <li><a href="#mayorista">Mayorista</a></li>
         <li><a href="#asesorias">Asesorías</a></li>
         <li><a href="#historia">Historia</a></li>
@@ -79,9 +95,12 @@
   <div class="wrap">
     <div class="sechead reveal">
       <div><p class="ey">El café <span class="jp">コーヒー</span></p><h2>Cafés de origen</h2><p>Lotes pequeños de fincas de altura, evaluados con protocolo SCA.</p></div>
-      <a class="lnk js-wa" data-wa="Hola Raúl, ¿me pasas la lista completa de cafés de Saltamontes con precios?">Ver todos <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <div class="rail-nav" aria-hidden="true">
+        <button class="rail-btn" data-rail="prev" aria-label="Anterior"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></button>
+        <button class="rail-btn" data-rail="next" aria-label="Siguiente"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></button>
+      </div>
     </div>
-    <div class="rail reveal">
+    <div class="rail reveal" id="cafeRail">
       <a class="pcard js-wa" data-wa="Hola Raúl, me interesa el café Táchira (lavado). ¿Precio y disponibilidad?">
         <div class="pcard__img"><img src="images/cafe-1.jpg" alt="Táchira" loading="lazy" /></div>
         <span class="pcard__cat">Lavado · タチラ</span><h3>Táchira</h3>
@@ -118,6 +137,19 @@
     <h2>No nos conformamos con un café correcto</h2>
     <p>Altura, sombra, cosecha selectiva y procesos hechos con paciencia. Como los tostadores japoneses que admiro: precisión, respeto por el grano y ni un atajo. Eso separa un buen café de uno que no se te olvida.</p>
     <a class="lnk" href="#historia">Nuestra historia <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+  </div>
+</section>
+
+<!-- BLOQUE VIDEO — cafetal a sangre -->
+<section class="vblock" aria-label="Cafetal">
+  <video autoplay muted loop playsinline preload="metadata" poster="images/editorial.jpg">
+    <source src="videos/cafetal-3.mp4" type="video/mp4" />
+  </video>
+  <div class="vblock__inner reveal">
+    <p class="ey">De la montaña <span class="jp">山から</span></p>
+    <h2>Cosecha a mano, grano a grano</h2>
+    <p>Cada cereza se recoge en su punto. Así empieza un café que vale la pena: en la falda de la montaña, con paciencia y buen ojo.</p>
+    <a class="btn btn--light js-wa" data-wa="Hola Raúl, quiero conocer más del origen de tu café.">Conocer el origen</a>
   </div>
 </section>
 
@@ -170,6 +202,33 @@
   </div>
 </section>
 
+<!-- RECONOCIMIENTOS -->
+<section class="sec sec--cream" id="reconocimientos">
+  <div class="wrap">
+    <div class="sechead reveal"><div><p class="ey">Trayectoria <span class="jp">実績</span></p><h2>Reconocimientos</h2><p>Las certificaciones más exigentes del café, y una vida dedicada al grano.</p></div></div>
+    <div class="awards reveal">
+      <div class="award"><span class="award__yr">Q Grader</span><span class="award__t">Q Arabica Grader</span><span class="award__by">Coffee Quality Institute</span></div>
+      <div class="award"><span class="award__yr">Q Processing</span><span class="award__t">Q Processing Expert</span><span class="award__by">Coffee Quality Institute</span></div>
+      <div class="award"><span class="award__yr">SCA</span><span class="award__t">Certificaciones SCA · Formador</span><span class="award__by">Specialty Coffee Association</span></div>
+      <div class="award"><span class="award__yr">Origen</span><span class="award__t">Caficultor · Tostador Saltamontes</span><span class="award__by">Andes de Venezuela</span></div>
+      <div class="award"><span class="award__yr">+28k</span><span class="award__t">Embajador del café venezolano</span><span class="award__by">Comunidad en Instagram</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- PRENSA / TESTIMONIOS -->
+<!-- REEMPLAZAR por testimonios reales (nombre + rol/ciudad). Placeholder por ahora. -->
+<section class="sec">
+  <div class="wrap">
+    <div class="sechead reveal"><div><p class="ey">Lo que dicen <span class="jp">評判</span></p><h2>Prensa &amp; clientes</h2></div></div>
+    <div class="quotes reveal">
+      <figure class="quote"><p>“Cambiamos a los lotes de Raúl y los clientes lo notaron a la semana. El acompañamiento con los baristas marcó la diferencia.”</p><cite>Cafetería de especialidad · Caracas</cite></figure>
+      <figure class="quote"><p>“Nos ayudó a subir la finca de 79 a 85 puntos en una cosecha. Ahora sí vendemos como café de especialidad.”</p><cite>Productor · Mérida</cite></figure>
+      <figure class="quote"><p>“El curso de catación me abrió la cabeza. Explica clarísimo y sin poses. Nunca más tomé café igual.”</p><cite>Alumna · Análisis sensorial</cite></figure>
+    </div>
+  </div>
+</section>
+
 <!-- COMUNIDAD -->
 <section class="sec sec--ink" id="comunidad">
   <div class="wrap signup reveal">
@@ -206,15 +265,23 @@
         <div class="foot__brand">Saltamontes</div>
         <div class="foot__jp">コーヒー焙煎所 · Tostadores de café</div>
         <p class="foot__tag">De la montaña a la taza, sin atajos.</p>
+        <div class="foot__social">
+          <a class="js-wa" data-wa="Hola Raúl 👋" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.7 4.8-1.3A10 10 0 1 0 12 2zm0 2a8 8 0 1 1-4.1 14.9l-.4-.2-2.8.7.8-2.7-.2-.4A8 8 0 0 1 12 4z"/></svg></a>
+          <a href="https://www.instagram.com/raulmartinez28" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.1" fill="currentColor" stroke="none"/></svg></a>
+        </div>
       </div>
       <div><h4>Comprar</h4><ul><li><a class="js-wa" data-wa="Hola Raúl, quiero café de Saltamontes.">Café de origen</a></li><li><a class="js-wa" data-wa="Hola Raúl, quiero el catálogo mayorista.">Para cafeterías</a></li></ul></div>
       <div><h4>Aprende</h4><ul><li><a href="#aprende">Cursos</a></li><li><a href="#asesorias">Asesorías</a></li><li><a href="#historia">Historia</a></li></ul></div>
       <div><h4>Contacto</h4><ul><li><a class="js-wa" data-wa="Hola Raúl 👋">WhatsApp</a></li><li><a href="https://www.instagram.com/raulmartinez28" target="_blank" rel="noopener">Instagram</a></li></ul></div>
     </div>
-    <div class="foot__bottom"><span>© <span id="year">2026</span> Saltamontes · Raúl Martínez</span><span>Andes de Venezuela <span style="color:var(--accent)">·</span> 焙煎</span></div>
+    <div class="foot__bottom">
+      <span>© <span id="year">2026</span> Saltamontes · Raúl Martínez</span>
+      <span class="foot__region">🇻🇪 Venezuela · Español <span style="color:var(--accent)">·</span> 焙煎</span>
+    </div>
   </div>
 </footer>
 
 <script src="assets/app.js"></script>
+<script src="assets/v4.js"></script>
 </body>
 </html>
