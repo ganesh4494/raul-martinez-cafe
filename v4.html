@@ -75,18 +75,41 @@
 
 <main>
 
-<!-- HERO — producto destacado -->
-<section class="hero">
-  <div class="hero__media"><img src="images/g-taza.jpg" alt="Microlote Reserva" loading="eager" /></div>
-  <div class="hero__body">
-    <img class="hero__logo" src="images/saltamontes-logo.png" alt="Saltamontes" />
-    <p class="ey">Destacado <span class="jp">今月の一杯</span></p>
-    <p class="hero__notes">Fresa <b>|</b> Vino tinto <b>|</b> Chocolate oscuro <b>|</b> Sedoso</p>
-    <p>Microlote Reserva — un natural de fermentación controlada, cosechado grano a grano a 1.700 msnm en los Andes venezolanos. Edición limitada, tostado por un Q&nbsp;Arabica&nbsp;Grader.</p>
-    <div class="hero__cta">
-      <a class="btn js-wa" data-wa="Hola Raúl, quiero el Microlote Reserva destacado de Saltamontes. ¿Disponibilidad y precio?">Pedir este café</a>
-      <a class="btn btn--out" href="#cafe">Ver todos</a>
+<!-- HERO — video en carrusel con logo + textos encima -->
+<section class="vhero" style="background-image:url('images/editorial.jpg')" aria-label="Cafetales de los Andes venezolanos">
+  <div class="vhero__media">
+    <video class="active" autoplay muted loop playsinline preload="auto" poster="images/editorial.jpg"><source src="videos/cafetal-1.mp4" type="video/mp4" /></video>
+    <video autoplay muted loop playsinline preload="auto"><source src="videos/cafetal-3.mp4" type="video/mp4" /></video>
+  </div>
+  <div class="vhero__scrim"></div>
+  <div class="vhero__inner">
+    <img class="vhero__logo" src="images/saltamontes-logo-light.png" alt="Saltamontes — Tostadores de café" />
+    <p class="ey">Tostadores de café · <span class="jp">コーヒー焙煎所</span></p>
+    <h1>De la montaña a tu taza</h1>
+    <p>Café de especialidad de los Andes venezolanos. Origen trazable, cosecha a mano y tostado por un Q&nbsp;Arabica&nbsp;Grader.</p>
+    <div class="vhero__cta">
+      <a class="btn btn--light js-wa" data-wa="Hola Raúl, quiero comprar café de Saltamontes. ¿Qué lotes hay disponibles?">Comprar café</a>
+      <a class="btn btn--out" href="#cafe">Ver los cafés</a>
     </div>
+  </div>
+  <div class="vhero__dots" role="tablist" aria-label="Cambiar video">
+    <button class="active" aria-label="Video 1"></button>
+    <button aria-label="Video 2"></button>
+  </div>
+  <a class="vhero__scroll" href="#cafe" aria-label="Desplázate para ver más">Descubre
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M6 13l6 6 6-6"/></svg>
+  </a>
+</section>
+
+<!-- DESTACADO DEL MES -->
+<section class="block block--rev reveal">
+  <div class="block__media"><img src="images/g-taza.jpg" alt="Microlote Reserva" loading="lazy" /><span class="tag">今月の一杯 · Destacado</span></div>
+  <div class="block__body">
+    <p class="ey">Destacado del mes <span class="jp">今月の一杯</span></p>
+    <h2>Microlote Reserva</h2>
+    <p style="text-transform:none;letter-spacing:0;font-weight:600;color:var(--accent);font-size:1.15rem;">Fresa · Vino tinto · Chocolate oscuro · Sedoso</p>
+    <p>Un natural de fermentación controlada, cosechado grano a grano a 1.700 msnm en los Andes venezolanos. Dulce, vinoso y largo. Edición limitada, tostado por un Q&nbsp;Arabica&nbsp;Grader.</p>
+    <a class="btn js-wa" data-wa="Hola Raúl, quiero el Microlote Reserva destacado. ¿Disponibilidad y precio?">Pedir este café</a>
   </div>
 </section>
 

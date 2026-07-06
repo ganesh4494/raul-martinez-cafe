@@ -241,6 +241,40 @@ h1,h2,h3,h4{ margin:0; font-weight:600; line-height:1.12; text-transform:upperca
 .foot__social svg{ width:18px; height:18px; }
 .foot__region{ display:inline-flex; align-items:center; gap:.5rem; }
 
+/* ---------- HERO DE VIDEO EN CARRUSEL (logo + texto encima) ---------- */
+.v4 .topbar{ position:relative; z-index:101; }
+.vhero{ position:relative; height:min(94vh,1000px); margin-top:-111px; overflow:hidden; display:grid; place-items:center; text-align:center;
+  background:#141210 center/cover no-repeat; color:#fff; isolation:isolate; }
+.vhero__media{ position:absolute; inset:0; z-index:1; }
+.vhero__media video{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:0; transition:opacity 1.4s ease; }
+.vhero__media video.active{ opacity:1; }
+.vhero__scrim{ position:absolute; inset:0; z-index:2; background:linear-gradient(180deg, rgba(15,11,8,.5) 0%, rgba(15,11,8,.2) 38%, rgba(15,11,8,.55) 80%, rgba(15,11,8,.82) 100%); }
+.vhero__inner{ position:relative; z-index:4; max-width:840px; padding:2rem var(--gutter); }
+.vhero__logo{ width:min(380px,74%); margin:0 auto 2rem; }
+.vhero .ey{ justify-content:center; color:color-mix(in srgb,#fff 68%,transparent); }
+.vhero .ey .jp{ color:#fff; }
+.vhero h1{ color:#fff; font-size:clamp(1.9rem,1.2rem+2.8vw,3.6rem); letter-spacing:.16em; text-shadow:0 2px 24px rgba(0,0,0,.35); }
+.vhero p{ color:color-mix(in srgb,#fff 86%,transparent); margin:1.3rem auto 0; max-width:46ch; font-size:var(--s-1);
+  text-transform:none; letter-spacing:0; font-weight:400; text-shadow:0 1px 14px rgba(0,0,0,.4); }
+.vhero__cta{ display:flex; gap:.9rem; justify-content:center; flex-wrap:wrap; margin-top:2rem; }
+.vhero__cta .btn--out{ border-color:#fff; color:#fff; }
+.vhero__cta .btn--out:hover{ background:#fff; color:var(--ink); }
+.vhero__dots{ position:absolute; z-index:4; bottom:clamp(4rem,7vh,5.5rem); left:0; right:0; display:flex; gap:.5rem; justify-content:center; }
+.vhero__dots button{ width:30px; height:3px; border:0; border-radius:0; padding:0; cursor:pointer; background:color-mix(in srgb,#fff 40%,transparent); transition:background .3s,width .3s; }
+.vhero__dots button.active{ background:#fff; width:46px; }
+.vhero__scroll{ position:absolute; z-index:4; bottom:1.5rem; left:50%; transform:translateX(-50%); color:color-mix(in srgb,#fff 70%,transparent);
+  font-size:.6rem; letter-spacing:.24em; text-transform:uppercase; text-decoration:none; display:flex; flex-direction:column; align-items:center; gap:.4rem; }
+.vhero__scroll svg{ width:18px; height:18px; animation:vbounce 1.8s ease-in-out infinite; }
+@keyframes vbounce{ 0%,100%{ transform:translateY(0); } 50%{ transform:translateY(6px); } }
+@media (prefers-reduced-motion:reduce){ .vhero__scroll svg{ animation:none; } .vhero__media video{ transition:none; } }
+
+/* header inmersivo (transparente) sobre el video, arriba del todo */
+.v4 .hdr:not(.is-stuck){ background:transparent; backdrop-filter:none; }
+.v4 .hdr:not(.is-stuck) .brand b, .v4 .hdr:not(.is-stuck) .nav a{ color:#fff; }
+.v4 .hdr:not(.is-stuck) .nav a::after{ background:#fff; }
+.v4 .hdr:not(.is-stuck) .menu-btn{ border-color:color-mix(in srgb,#fff 45%,transparent); color:#fff; }
+.v4 .hdr:not(.is-stuck) .brand img{ filter:brightness(0) invert(1); }
+
 /* Reveal */
 .reveal{ opacity:0; transform:translateY(20px); transition:opacity .7s var(--ease), transform .7s var(--ease); }
 .reveal.in{ opacity:1; transform:none; }
